@@ -1,0 +1,20 @@
+{
+	"name": "http-tell",
+	"description": "Send off stuff to a http response",
+	"version": "0.0.1",
+	"repository": "srcagency/http-tell",
+	"scripts": {
+		"test": "node test"
+	},
+	"dependencies": {
+		"bluebird": "^3.4.6",
+		"pull-json-stringify": "^0.0.2",
+		"pull-stream": "^3.5.0",
+		"stream-to-pull-stream": "^1.7.2"
+	},
+	"devDependencies": {
+		"request": "^2.79.0",
+		"tape": "^4.6.3"
+	},
+	"license": "MIT"
+}
