@@ -1,6 +1,6 @@
 'use strict';
 
-const http = require('http');
+const messagesByCode = require('http').STATUS_CODES;
 const Promise = require('bluebird');
 const pull = require('pull-stream');
 const toPullSink = require('stream-to-pull-stream').sink;
@@ -11,16 +11,13 @@ module.exports = send;
 function send( response, {
 	// headers
 	code = 200,
-	message,
+	message = messagesByCode[code],
 	headers,
 
 	// body
 	json,
 	raw,
 }){
-	if (message === undefined)
-		message = http.STATUS_CODES[code];
-
 	if (json !== undefined) {
 		response.setHeader('Content-Type', 'application/json; charset=utf-8');
 		response.writeHead(code, message, headers);
