@@ -132,7 +132,7 @@ test('Primitive JSON', function( t ){
 	}, function({ err, response, body }){
 		t.notOk(err);
 
-		t.equal(body, '123');
+		t.equal(body, '123\n');
 
 		t.deepEqual(response.headers, {
 			connection: 'close',
@@ -181,7 +181,7 @@ test('Overwriting the "Content-Type" header', function( t ){
 	}, function({ err, response, body }){
 		t.notOk(err);
 
-		t.equal(body, '123');
+		t.equal(body, '123\n');
 
 		t.deepEqual(response.headers, {
 			connection: 'close',

@@ -28,7 +28,7 @@ function send( response, {
 				toPullSink(response, cb)
 			);
 
-		response.end(JSON.stringify(json));
+		response.end(JSON.stringify(json)+'\n');
 
 		return cb();
 	}
