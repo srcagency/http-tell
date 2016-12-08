@@ -1,7 +1,6 @@
 'use strict';
 
 const messagesByCode = require('http').STATUS_CODES;
-const Promise = require('bluebird');
 const pull = require('pull-stream');
 const toPullSink = require('stream-to-pull-stream').sink;
 const stringify = require('pull-json-stringify')();
@@ -17,38 +16,38 @@ function send( response, {
 	// body
 	json,
 	raw,
-}){
+}, cb){
 	if (json !== undefined) {
 		response.setHeader('Content-Type', 'application/json; charset=utf-8');
 		response.writeHead(code, message, headers);
 
 		if (typeof json === 'function')
-			return Promise.fromCallback(cb => pull(
+			return pull(
 				json,
 				stringify,
 				toPullSink(response, cb)
-			));
+			);
 
 		response.end(JSON.stringify(json));
 
-		return Promise.resolve();
+		return cb();
 	}
 
 	response.writeHead(code, message, headers);
 
 	if (raw !== undefined) {
 		if (typeof raw === 'function')
-			return Promise.fromCallback(cb => pull(
+			return pull(
 				raw,
 				toPullSink(response, cb)
-			));
+			);
 
 		response.end(raw);
 
-		return Promise.resolve();
+		return cb();
 	}
 
 	response.end();
 
-	return Promise.resolve();
+	return cb();
 }
