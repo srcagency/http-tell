@@ -5,7 +5,7 @@ const Promise = require('bluebird');
 const request = require('request');
 const test = require('tape');
 const pull = require('pull-stream');
-const send = require('./');
+const tell = require('./');
 
 test('Defaults', function( t ){
 	t.plan(6);
@@ -271,7 +271,7 @@ function issue( description, cb, binary ){
 	let returned;
 
 	const server = http.createServer(function( req, res ){
-		returned = send(res, description);
+		returned = tell(res, description);
 	})
 		.listen(0, () => request.get({
 			url: 'http://localhost:'+server.address().port,
