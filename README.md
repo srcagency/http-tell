@@ -30,7 +30,7 @@ http.createServer(function( request, response ){
 	})
 		.then(() => console.log('Completed a request'));
 })
-	.listen(800);
+	.listen(8000);
 ```
 
 Streaming JSON:
@@ -48,7 +48,7 @@ http.createServer(function( request, response ){
 	})
 		.then(() => console.log('School\'s over'));
 })
-	.listen(800);
+	.listen(8000);
 ```
 
 Streaming a file:
@@ -67,5 +67,5 @@ http.createServer(function( request, response ){
 	})
 		.then(() => console.log('Sent a kitten'));
 })
-	.listen(800);
+	.listen(8000);
 ```
