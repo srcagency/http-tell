@@ -138,7 +138,7 @@ test('Primitive JSON', function( t ){
 			connection: 'close',
 			date: response.headers.date,
 			'transfer-encoding': 'chunked',
-			'content-type': 'application/json; charset=utf-8',
+			'content-type': 'application/x-ndjson; charset=utf-8',
 		});
 	});
 });
@@ -162,7 +162,7 @@ test('Complex JSON', function( t ){
 			connection: 'close',
 			date: response.headers.date,
 			'transfer-encoding': 'chunked',
-			'content-type': 'application/json; charset=utf-8',
+			'content-type': 'application/x-ndjson; charset=utf-8',
 		});
 	});
 });
@@ -174,7 +174,7 @@ test('Overwriting the "Content-Type" header', function( t ){
 		code: 200,
 		json: 123,
 		headers: {
-			'Content-Type': 'text/json',
+			'Content-Type': 'text/x-ndjson',
 		},
 	}, function( err ){
 		t.notOk(err);
@@ -187,7 +187,7 @@ test('Overwriting the "Content-Type" header', function( t ){
 			connection: 'close',
 			date: response.headers.date,
 			'transfer-encoding': 'chunked',
-			'content-type': 'text/json',
+			'content-type': 'text/x-ndjson',
 		});
 	});
 });
@@ -211,7 +211,7 @@ test('Streaming JSON', function( t ){
 			connection: 'close',
 			date: response.headers.date,
 			'transfer-encoding': 'chunked',
-			'content-type': 'application/json; charset=utf-8',
+			'content-type': 'application/x-ndjson; charset=utf-8',
 		});
 	});
 });

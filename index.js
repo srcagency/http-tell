@@ -18,7 +18,7 @@ function send( response, {
 	raw,
 }, cb){
 	if (json !== undefined) {
-		response.setHeader('Content-Type', 'application/json; charset=utf-8');
+		response.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
 		response.writeHead(code, message, headers);
 
 		if (typeof json === 'function')
