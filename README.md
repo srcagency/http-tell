@@ -1,8 +1,9 @@
 # http-tell
 
 A simple layer on top of `response.writeHead/write` that supports passing data
-from buffers, strings or pull-streams, encoding it as JSON or as is, and
-returns promises (bluebird) for when the piping is complete.
+from buffers, strings or pull-streams, encoding it as
+[ndjson](http://ndjson.org) or as is, and returns promises (bluebird) for when
+the piping is complete.
 
 ```js
 tell(response, {
