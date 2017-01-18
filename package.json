@@ -1,7 +1,7 @@
 {
 	"name": "http-tell",
 	"description": "Send off stuff to a http response",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": "srcagency/http-tell",
 	"scripts": {
 		"test": "node test"
