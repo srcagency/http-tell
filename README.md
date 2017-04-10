@@ -2,8 +2,7 @@
 
 A simple layer on top of `response.writeHead/write` that supports passing data
 from buffers, strings or pull-streams, encoding it as
-[ndjson](http://ndjson.org) or as is, and returns promises (bluebird) for when
-the piping is complete.
+[ndjson](http://ndjson.org) or as is.
 
 ```js
 tell(response, {
@@ -15,7 +14,7 @@ tell(response, {
 	// body
 	json,		// pull-stream or string
 	raw,		// pull-stream or whatever
-})
+}, cb)
 ```
 
 ## Examples
@@ -28,8 +27,9 @@ http.createServer(function( request, response ){
 		201,
 
 		json: { its: 'okay' },
-	})
-		.then(() => console.log('Completed a request'));
+	}, err => err
+		? console.error(err)
+		: console.log('Completed a request'));
 })
 	.listen(8000);
 ```
@@ -46,8 +46,9 @@ http.createServer(function( request, response ){
 			pull.values([ 'a', 'b', 'c' ]),
 			pull.map(i => i.toUpperCase())
 		),
-	})
-		.then(() => console.log('School\'s over'));
+	}, err => err
+		? console.error(err)
+		: console.log('School\'s over'));
 })
 	.listen(8000);
 ```
@@ -65,8 +66,9 @@ http.createServer(function( request, response ){
 			'Content-Type': 'image/jpeg',
 		},
 		raw: file(__dirname+'/kitten.jpg'),
-	})
-		.then(() => console.log('Sent a kitten'));
+	}, err => err
+		? console.error(err)
+		: console.log('Sent a kitten'));
 })
 	.listen(8000);
 ```
