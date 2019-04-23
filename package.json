@@ -7,9 +7,9 @@
 		"test": "node test"
 	},
 	"dependencies": {
-		"pull-json-stringify": "^0.0.2",
-		"pull-stream": "^3.5.0",
-		"stream-to-pull-stream": "^1.7.2"
+		"pull-json-stringify": "0.0.2",
+		"pull-stream": "^3.6.9",
+		"stream-to-pull-stream": "^1.7.3"
 	},
 	"devDependencies": {
 		"request": "^2.79.0",
