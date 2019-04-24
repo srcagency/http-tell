@@ -12,8 +12,8 @@
 		"stream-to-pull-stream": "^1.7.3"
 	},
 	"devDependencies": {
-		"request": "^2.79.0",
-		"tape": "^4.6.3"
+		"request": "^2.88.0",
+		"tape": "^4.10.1"
 	},
 	"license": "MIT"
 }
